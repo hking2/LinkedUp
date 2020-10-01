@@ -14,7 +14,7 @@ const Profile = ({ match, getProfile, profile: {profile, loading}, auth
 }) => {
   useEffect(()=>{
     getProfile(match.params.id);
-  }, [getProfile]);
+  }, [getProfile, match.params.id]);
 
   return (
     <Fragment>
