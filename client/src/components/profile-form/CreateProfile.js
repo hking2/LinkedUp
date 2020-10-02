@@ -10,7 +10,6 @@ const initialState = {
   location: '',
   bio: '',
   status: '',
-  githubusername: '',
   skills: '',
   youtube: '',
   facebook: '',
@@ -33,7 +32,6 @@ const CreateProfile = ({
     location,
     bio,
     status,
-    githubusername,
     skills,
     youtube,
     facebook,
@@ -63,13 +61,24 @@ const CreateProfile = ({
         <div className="form-group">
           <select name="status" value={status} onChange={e => onChange(e)} >
             <option value="0">* Select Professional Status</option>
-            <option value="Developer">Developer</option>
-            <option value="Junior Developer">Junior Developer</option>
-            <option value="Senior Developer">Senior Developer</option>
-            <option value="Manager">Manager</option>
-            <option value="Student or Learning">Student or Learning</option>
-            <option value="Instructor">Instructor or Teacher</option>
+            <option value="Advisor">Advisor</option>
+            <option value="Business Analyst">Business Analyst</option>
+            <option value="Coordinator">Coordinator</option>
+            <option value="Data Scientist">Analyst</option>
+            <option value="Graphic Designer">Graphic Designer</option>
+            <option value="Hardware Engineer">Hardware Engineer</option>
+            <option value="Instructor">Instructor</option>
             <option value="Intern">Intern</option>
+            <option value="IT Specialist">IT Specialist</option>
+            <option value="Manager">Manager</option>
+            <option value="Network Engineer">Network Engineer</option>
+            <option value="Researcher">Researcher</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Student">Student</option>
+            <option value="Systems Administrator">Systems Administrator</option>
+            <option value="Technician">Techinician</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+            <option value="Web Developer">Web Developer</option>
             <option value="Other">Other</option>
           </select>
           <small className="form-text"
@@ -99,18 +108,6 @@ const CreateProfile = ({
           <small className="form-text"
             >Please use comma separated values (eg.
             HTML,CSS,JavaScript,PHP)</small
-          >
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Github Username"
-            name="githubusername"
-            value={githubusername} onChange={e => onChange(e)}
-          />
-          <small className="form-text"
-            >If you want your latest repos and a Github link, include your
-            username</small
           >
         </div>
         <div className="form-group">

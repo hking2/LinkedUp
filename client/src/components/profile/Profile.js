@@ -6,7 +6,6 @@ import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileExperience from './ProfileExperience';
 import ProfileEducation from './ProfileEducation';
-//import ProfileGithub from './ProfileGithub';
 import Spinner from '../layout/Spinner';
 import { getProfile } from '../../actions/profile';
 

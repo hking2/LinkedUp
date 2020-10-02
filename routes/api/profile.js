@@ -1,6 +1,4 @@
 const express = require('express');
-const config = require('config');
-const request = require('request');
 const normalize = require('normalize-url');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
@@ -48,7 +46,6 @@ router.post('/', [
       location,
       bio,
       status,
-      githubusername,
       skills,
       youtube,
       facebook,
@@ -67,8 +64,7 @@ router.post('/', [
       skills: Array.isArray(skills)
         ? skills
         : skills.split(',').map((skill) => ' ' + skill.trim()),
-      status,
-      githubusername
+      status
     };
 
     const socialfields = { youtube, twitter, instagram, linkedin, facebook };
@@ -241,8 +237,8 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
   }
 });
 
-// @route:    DELETE api/profile/education/:edu_id
-// @descrip:  delete profile education
+// @route:    DELETE api/profile/experience/:exp_id
+// @descrip:  delete profile experience
 // @access:   private
 router.delete('/education/:edu_id', auth, async (req, res) => {
   try {
@@ -256,31 +252,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
     res.status(200).json(profile);
     
   } catch (err) {
-    res.status(500).send('Server error');
-  }
-});
-
-// @route:    GET api/profile/github/:user
-// @descrip:  get user from Github
-// @access:   public
-router.get('/github/:username', async (req, res)  => {
-  try {
-    const options = {
-      uri: `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc&client_id=${config.get('githubClientId')}&client_secret=${config.get('githubClientSecret')}`,
-      method: 'GET',
-      headers: { 'user-agent': 'node.js' }
-    };
-
-    request(options, (error, response, body) => {
-      if (error) console.error(error);
-      if (response.statusCode !== 200) {
-        return res.status(404).json({ msg: 'No Github profile found' });
-      }
-      res.json(JSON.parse(body));
-    });
-
-  } catch (err) {
-    res.status(500).send('Server error');
+    res.status(500).send('Server error')
   }
 });
 
