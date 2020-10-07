@@ -1,0 +1,1 @@
+This is a mock LinkedIn where professionals and students can create profiles that include work and educational experience to share with other users. Features include secure login authorization, posts, comments, likes, and profile viewing with information and links to social media. 
